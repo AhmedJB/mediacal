@@ -391,6 +391,10 @@ body{
 		transform: scale(1);
 	}
 
+	.glow .pack-title{
+		margin:30px;
+	}
+
 	.pack-article:nth-child(1){
 		order:2;
 	}
