@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root{
 
 	--primary : #faf3e8;
@@ -139,14 +140,15 @@ body{
 	text-align:center;
 	font-size: 3em;
 	letter-spacing: .2em;
-	font-style: italic;
+	font-family: 'Besley', serif;
 	color: var(--second);
-	text-shadow: 0px 5px 20px var(--second);
+	/* text-shadow: 0px 5px 20px var(--second); */
 }
 
 .mission-row{
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
+	
 	flex-wrap: wrap;
 	align-items: center;
 	margin:20px 0px;
@@ -157,7 +159,30 @@ body{
 	display:flex;
 	flex-direction: column;
 	align-items:center;
-	margin:20px 0px;
+	justify-content: center;
+	
+	margin:20px;
+	padding:20px;
+	box-shadow:  5px 5px 10px #9b9790,
+             -5px -5px 10px #ffffff;
+	width: 300px;
+	max-width:100%;
+
+}
+.article-container{
+	display: flex;
+}
+
+.mission-article:nth-child(even){
+	border-radius: 40px 0px 40px 0px;
+}
+
+.mission-article:nth-child(odd){
+	border-radius: 0px 40px 0px 40px;
+}
+
+.reverse{
+	flex-direction: row-reverse;
 }
 
 .mission-article i{
@@ -172,6 +197,7 @@ body{
 	font-weight: 600;
 	font-style: italic;
 	letter-spacing: 2px;
+	text-align: center;
 	
 }
 
@@ -180,29 +206,84 @@ body{
 	justify-content: space-around;
 	flex-wrap:wrap;
 	align-items: stretch;
-	margin:20px 0px;
+	margin:50px 0px;
 	padding:10px 15px;
 }
 .pack-article{
+	position: static;
+	z-index:10;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding:20px;
+	
 	border-radius:10px;
 	width:400px;
-	margin:20px;
-	box-shadow:  5px 5px 10px #a39e97,
-             -5px -5px 10px #ffffff;
+	margin:40px;
+	background-color:var(--primary);
+	overflow:none;
+	
 
 }
+
+.pack-article:not(.glow){
+	padding:20px;
+	box-shadow:  5px 5px 10px #a39e97,
+             -5px -5px 10px #ffffff;
+}
+
+
+
+
+
+.pack-container{
+	border-radius:10px;
+	position: relative;
+	padding:20px;
+  width: 100%;
+  height: 100%;
+	background-color: var(--primary);
+	z-index: 2;
+	box-shadow:  5px 5px 10px #a39e97,
+             -5px -5px 10px #ffffff;
+}
+
+.glow:before{
+	position: absolute;
+  content: '';
+  background: var(--second);
+  z-index: -10;
+  height: 28px;
+  width: 28px;
+  /* Added lines */
+  top:2rem;
+  right:-0.5rem;
+  transform : rotate(45deg);
+}
+.glow::after{
+	position: absolute;
+	content: 'Recommandé';
+	text-transform: capitalize;
+	top: 11px;
+	right: -14px;
+	padding: 0.5rem;
+	width: 6rem;
+	border-radius:8px 0px 0px 8px;
+	background: var(--second);
+	color: white;
+	text-align: center;
+	z-index:3;
+	font-family: 'Roboto', sans-serif;
+	box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+  } 
 
 .pack-title{
 	text-align:center;
 	font-size: 1.8em;
-	letter-spacing: .2em;
-	font-style: italic;
+	letter-spacing: .1em;
+	
 	color: var(--second);
-	text-shadow: 0px 5px 20px var(--second);
+	font-family: 'Besley', serif;
+	/* text-shadow: 0px 5px 20px var(--second); */
 
 }
 
@@ -232,9 +313,16 @@ body{
 	width:200px;
 	text-align: center;
 }
+.pricing sup{
+	font-size:.6em;
+}
 
 .pricing:hover{
 	filter: brightness(1.2);
+}
+
+.glow{
+	transform:   scale(1.2);
 }
 
 .center-row{
@@ -298,7 +386,17 @@ body{
 
 
 @media (max-width: 576px) { 
-	
+	.pack-article:nth-child(2){
+		order:1;
+		transform: scale(1);
+	}
+
+	.pack-article:nth-child(1){
+		order:2;
+	}
+	.pack-article:nth-child(3){
+		order:2;
+	}
 	.header{
 		width:100%;
 		height:100vh;
@@ -350,6 +448,18 @@ body{
 
 
  @media (max-width: 1330px) and (min-width: 577px){
+	.pack-article:nth-child(2){
+		order:1;
+		transform: scale(1);
+	}
+
+	.pack-article:nth-child(1){
+		order:2;
+	}
+	.pack-article:nth-child(3){
+		order:2;
+	}
+
 	.header{
 		width:100%;
 		height:100vh;
@@ -388,5 +498,20 @@ body{
 	.art img{
 		min-width: 100%;
 		height:35vh;
+	}
+ }
+
+
+ @media (max-width:1500px) and ( min-width:1330px){
+	.pack-article:nth-child(2){
+		order:1;
+		transform: scale(1);
+	}
+
+	.pack-article:nth-child(1){
+		order:2;
+	}
+	.pack-article:nth-child(3){
+		order:2;
 	}
  }
