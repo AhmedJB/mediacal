@@ -260,6 +260,7 @@ body{
 .foot p{
 	color:var(--white);
 	font-size:1.3em;
+	text-align:center;
 }
 
 .foot-link{
